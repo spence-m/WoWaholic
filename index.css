@@ -7,3 +7,7 @@ td {
 table {
   margin-bottom: 24px;
 }
+
+.active {
+  background-color: yellow;
+}
