@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const month = parts[1] - 1;
         const year = parts[2];
         const holidayStartDate = new Date(year, month, day);
-
+        now.setHours(0, 0, 0, 0);
         if (isHoliday(holidayStartDate, now) === true) {
           dateToSetActive = data[j];
         }
