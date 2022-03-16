@@ -1,43 +1,70 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const tableBodies = document.getElementsByClassName("js-table-body");
-  for (let i = 0; i < tableBodies.length; i++) {
-    const body = tableBodies[i];
-    const data = body.getElementsByTagName("td");
-    let dateToSetActive;
-    const now = new Date();
-    for (let j = 0; j < data.length; j++) {
-      const dateStr = data[j].innerText;
+function getHolidays(year) {
+  const warsongEpoch = new Date(2020, 2, 13);
+  const arathiEpoch = new Date(2020, 2, 20);
+  const alteracEpoch = new Date(2020, 3, 3);
+  const start = new Date(2020, 2, 13);
 
-      if (dateStr) {
-        const parts = dateStr.split("/");
-        const day = parts[0];
-        const month = parts[1] - 1;
-        const year = parts[2];
-        const holidayStartDate = new Date(year, month, day);
-        now.setHours(0, 0, 0, 0);
-        if (isHoliday(holidayStartDate, now) === true) {
-          dateToSetActive = data[j];
-        }
+  let i = 0;
+  const dates = [];
+  while (start.getFullYear() <= year) {
+    const row = [{
+      key: "warsong",
+      date: "",
+    },
+    {
+      key: "arathi",
+      date: "",
+    },
+    {
+      key: "alterac",
+      date: "",
+    }
+    ];
+    const warsongDate = new Date(warsongEpoch);
+    warsongDate.setDate(warsongDate.getDate() + 28 * i);
+    const arathiDate = new Date(arathiEpoch);
+    arathiDate.setDate(arathiDate.getDate() + 28 * i);
+    const alteracDate = new Date(alteracEpoch);
+    alteracDate.setDate(alteracDate.getDate() + 28 * i);
+
+    let added = false;
+    if (warsongDate.getFullYear() === year) {
+      row[0].date = warsongDate.toLocaleDateString()
+      added= true;
+    }
+    if (arathiDate.getFullYear() === year) {
+      row[1].date = arathiDate.toLocaleDateString()
+      added= true;
+    }
+    if (alteracDate.getFullYear() === year) {
+      row[2].date = alteracDate.toLocaleDateString()
+      added= true;
+    }
+
+    if (added) {
+      dates.push(row);
+    }
+    start.setDate(start.getDate() + 28);
+    i++;
+  }
+
+  return dates;
+}
+
+document.addEventListener('alpine:init', () => {
+  Alpine.data('holidays', () => ({
+    year: new Date().getFullYear(),
+    dates() {
+      return getHolidays(this.year);
+    },
+    incrementYear() {
+      ++this.year;
+    },
+    decrementYear() {
+      const epochYear = 2020;
+      if (this.year > epochYear) {
+        --this.year;
       }
     }
-
-    if (dateToSetActive) {
-      dateToSetActive.classList.add("active");
-    }
-  }
-});
-
-function addDays(date, days) {
-  var result = new Date(date);
-  result.setDate(result.getDate() + days);
-  return result;
-}
-
-function isHoliday(holidayDate, dateToCheck) {
-  return (
-    dateToCheck.getTime() === holidayDate.getTime() ||
-    dateToCheck.getTime() === addDays(holidayDate, 1).getTime() ||
-    dateToCheck.getTime() === addDays(holidayDate, 2).getTime() ||
-    dateToCheck.getTime() === addDays(holidayDate, 3).getTime()
-  );
-}
+  }))
+})

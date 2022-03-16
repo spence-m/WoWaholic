@@ -1,13 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Playfair Display', serif;
+}
+
 table,
 th,
 td {
-  border: 2px solid black;
+  border: 2px solid hsl(204, 19%, 20%);
+  padding: 10px;
 }
 
 table {
   margin-bottom: 24px;
+  border-collapse: collapse;
 }
 
-.active {
-  background-color: yellow;
+.table-heading {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  color: hsl(204, 19%, 20%);
+}
+
+.table-cell {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  color: hsl(204, 19%, 20%);
+}
+
+.table-cell--past {
+  color: hsl(204, 19%, 50%);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+
+  margin: 0;
+  margin-bottom: 36px;
+
+  color: hsl(204, 19%, 20%);
+}
+
+.subtitle {
+  font-size: 36px;
+  font-weight: 500;
+
+  margin: 0;
+  margin-bottom: 18px;
+
+  color: hsl(204, 19%, 20%);
+}
+
+.button {
+  border: none;
+  padding: 12px;
+  background-color: hsl(204, 19%, 20%);
+  color: white;
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  width: 150px;
+  margin-bottom: 24px;
+  margin-right: 16px;
 }
