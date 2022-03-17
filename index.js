@@ -1,9 +1,4 @@
-function getHolidays(year) {
-  const warsongEpoch = new Date(2020, 2, 13);
-  const arathiEpoch = new Date(2020, 2, 20);
-  const alteracEpoch = new Date(2020, 3, 3);
-  const start = new Date(2020, 2, 13);
-
+function getHolidays(year, warsongEpoch, arathiEpoch, alteracEpoch, start) {
   let i = 0;
   const dates = [];
   while (start.getFullYear() <= year) {
@@ -51,11 +46,42 @@ function getHolidays(year) {
   return dates;
 }
 
+function formatDate(date) {
+  if (!date) {
+    return "";
+  }
+  return date.toLocaleDateString();
+}
+
+function isPast(holidayDate) {
+  if (!holidayDate) {
+    return false;
+  }
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return holidayDate < today;
+}
+
+function isHoliday(holidayDate) {
+  if (!holidayDate) {
+    return false;
+  }
+  const ends = new Date(holidayDate);
+  ends.setDate(ends.getDate() + 3);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return today >= holidayDate && today <= ends;
+}
+
 document.addEventListener('alpine:init', () => {
   Alpine.data('holidays', () => ({
     year: new Date().getFullYear(),
     dates() {
-      return getHolidays(this.year);
+      const warsongEpoch = new Date(2020, 2, 13);
+      const arathiEpoch = new Date(2020, 2, 20);
+      const alteracEpoch = new Date(2020, 3, 3);
+      const start = new Date(2020, 2, 13);
+      return getHolidays(this.year, warsongEpoch, arathiEpoch, alteracEpoch, start);
     },
     incrementYear() {
       ++this.year;
@@ -66,29 +92,34 @@ document.addEventListener('alpine:init', () => {
         --this.year;
       }
     },
-    formatDate(date) {
-      if (!date) {
-        return "";
-      }
-      return date.toLocaleDateString();
+    formatDate,
+    isPast,
+    isHoliday
+  }));
+
+  Alpine.data('somHolidays', () => ({
+    year: new Date().getFullYear(),
+    dates() {
+      const warsongEpoch = new Date(2021, 10, 19);
+      const arathiEpoch = new Date(2021, 10, 26);
+      const alteracEpoch = new Date(2021, 11, 10);
+      const start = new Date(2021, 10, 19);
+      return getHolidays(this.year, warsongEpoch, arathiEpoch, alteracEpoch, start);
     },
-    isPast(holidayDate) {
-      if (!holidayDate) {
-        return false;
+    incrementYear() {
+      const ends = 2022;
+      if (this.year < ends) {
+        ++this.year;
       }
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      return holidayDate < today;
     },
-    isHoliday(holidayDate) {
-      if (!holidayDate) {
-        return false;
+    decrementYear() {
+      const epochYear = 2021;
+      if (this.year > epochYear) {
+        --this.year;
       }
-      const ends = new Date(holidayDate);
-      ends.setDate(ends.getDate() + 3);
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      return today >= holidayDate && today <= ends;
-    }
-  }))
+    },
+    formatDate,
+    isPast,
+    isHoliday
+  }));
 })
