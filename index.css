@@ -26,6 +26,8 @@ table {
 }
 
 .table-cell {
+  position: relative;
+  overflow: hidden;
   font-size: 16px;
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
@@ -67,4 +69,14 @@ table {
   width: 150px;
   margin-bottom: 24px;
   margin-right: 16px;
+}
+
+.triangle {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  background: hsl(204, 19%, 20%);
+  height: 20px;
+  width: 20px;
+  transform: rotate(-45deg);
 }

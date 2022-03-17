@@ -29,16 +29,16 @@ function getHolidays(year) {
 
     let added = false;
     if (warsongDate.getFullYear() === year) {
-      row[0].date = warsongDate.toLocaleDateString()
-      added= true;
+      row[0].date = warsongDate;
+      added = true;
     }
     if (arathiDate.getFullYear() === year) {
-      row[1].date = arathiDate.toLocaleDateString()
-      added= true;
+      row[1].date = arathiDate;
+      added = true;
     }
     if (alteracDate.getFullYear() === year) {
-      row[2].date = alteracDate.toLocaleDateString()
-      added= true;
+      row[2].date = alteracDate;
+      added = true;
     }
 
     if (added) {
@@ -65,6 +65,22 @@ document.addEventListener('alpine:init', () => {
       if (this.year > epochYear) {
         --this.year;
       }
+    },
+    formatDate(date) {
+      if (!date) {
+        return "";
+      }
+      return date.toLocaleDateString();
+    },
+    isHoliday(holidayDate) {
+      if (!holidayDate) {
+        return false;
+      }
+      const ends = new Date(holidayDate);
+      ends.setDate(ends.getDate() + 3);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return today >= holidayDate && today <= ends;
     }
   }))
 })

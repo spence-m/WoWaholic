@@ -34,13 +34,18 @@
       <tbody>
         <template x-for="(date, index) in dates">
           <tr>
-            <td class="table-cell" x-text="date[0].date"></td>
-            <td class="table-cell" x-text="date[1].date"></td>
-            <td class="table-cell" x-text="date[2].date">
+            <td class="table-cell">
+              <div :class="isHoliday(date[0].date) === true ? 'triangle' : ''"></div>
+              <span x-text="formatDate(date[0].date)"></span>
             </td>
-            <div class="arrow-up">
-              <!-- TODO: create a nice triangle on the corner of the active date :) -->
-            </div>
+            <td class="table-cell">
+              <div :class="isHoliday(date[1].date) === true ? 'triangle' : ''"></div>
+              <span x-text="formatDate(date[1].date)"></span>
+            </td>
+            <td class="table-cell">
+              <div :class="isHoliday(date[2].date) === true ? 'triangle' : ''"></div>
+              <span x-text="formatDate(date[2].date)"></span>
+            </td>
           </tr>
         </template>
       </tbody>
