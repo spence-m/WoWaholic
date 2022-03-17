@@ -72,6 +72,14 @@ document.addEventListener('alpine:init', () => {
       }
       return date.toLocaleDateString();
     },
+    isPast(holidayDate) {
+      if (!holidayDate) {
+        return false;
+      }
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return holidayDate < today;
+    },
     isHoliday(holidayDate) {
       if (!holidayDate) {
         return false;

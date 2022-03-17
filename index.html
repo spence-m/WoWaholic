@@ -36,15 +36,15 @@
           <tr>
             <td class="table-cell">
               <div :class="isHoliday(date[0].date) === true ? 'triangle' : ''"></div>
-              <span x-text="formatDate(date[0].date)"></span>
+              <span :class="isPast(date[0].date) === true ? 'table-cell--past' : ''" x-text="formatDate(date[0].date)"></span>
             </td>
             <td class="table-cell">
               <div :class="isHoliday(date[1].date) === true ? 'triangle' : ''"></div>
-              <span x-text="formatDate(date[1].date)"></span>
+              <span :class="isPast(date[1].date) === true ? 'table-cell--past' : ''" x-text="formatDate(date[1].date)"></span>
             </td>
             <td class="table-cell">
               <div :class="isHoliday(date[2].date) === true ? 'triangle' : ''"></div>
-              <span x-text="formatDate(date[2].date)"></span>
+              <span :class="isPast(date[2].date) === true ? 'table-cell--past' : ''" x-text="formatDate(date[2].date)"></span>
             </td>
           </tr>
         </template>
