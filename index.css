@@ -56,7 +56,7 @@ article {
   margin: 0;
   margin-bottom: 36px;
 
-  color: #c97b23;
+  color: #e7960a;
 }
 
 .subtitle {
@@ -66,13 +66,17 @@ article {
   margin: 0;
   margin-bottom: 18px;
 
-  color: #c97b23;
+  color: #e7960a;
+}
+
+.subtitle--bcc {
+  color: #bcdb00;
 }
 
 .button {
   border: none;
   padding: 12px;
-  background-color: #103551;
+  background-color: #1a67ac;
   color: white;
   cursor: pointer;
   font-family: 'Playfair Display', serif;
@@ -86,8 +90,12 @@ article {
   position: absolute;
   right: -10px;
   bottom: -10px;
-  background: #c97b23;
+  background-color: #c97b23;
   height: 20px;
   width: 20px;
   transform: rotate(-45deg);
+}
+
+.triangle--bcc {
+  background-color: #bcdb00;
 }
