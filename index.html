@@ -37,7 +37,7 @@
     <div class="content-wrapper">
       <article x-data="classicEraHolidays">
         <h1 class="subtitle">Classic Era <b x-text="year"></b></h1>
-        <button class="button" @click="decrementYear">Previous year</button>
+        <button class="button" :class="isDecrementDisabled() === true ? 'button--disabled' : ''" :aria-disabled="isDecrementDisabled() === true" @click="decrementYear">Previous year</button>
         <button class="button" @click="incrementYear">Next year</button>
         <table>
           <thead>
@@ -73,8 +73,8 @@
 
       <article x-data="somHolidays">
         <h1 class="subtitle">Season of Mastery <b x-text="year"></b></h1>
-        <button class="button" @click="decrementYear">Previous year</button>
-        <button class="button" @click="incrementYear">Next year</button>
+        <button class="button" :class="isDecrementDisabled() === true ? 'button--disabled' : ''" @click="decrementYear">Previous year</button>
+        <button class="button" :class="isIncrementDisabled() === true ? 'button--disabled' : ''" @click="incrementYear">Next year</button>
         <table>
           <thead>
             <tr>
@@ -109,7 +109,7 @@
 
       <article x-data="bccHolidays">
         <h1 class="subtitle subtitle--bcc">Burning Crusade Classic <b x-text="year"></b></h1>
-        <button class="button" @click="decrementYear">Previous year</button>
+        <button class="button" :class="isDecrementDisabled() === true ? 'button--disabled' : ''" @click="decrementYear">Previous year</button>
         <button class="button" @click="incrementYear">Next year</button>
         <table>
           <thead>

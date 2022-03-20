@@ -86,6 +86,10 @@ article {
   margin-right: 16px;
 }
 
+.button--disabled {
+  opacity: 0.7;
+}
+
 .triangle {
   position: absolute;
   right: -10px;

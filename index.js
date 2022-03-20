@@ -156,6 +156,10 @@ document.addEventListener('alpine:init', () => {
         --this.year;
       }
     },
+    isDecrementDisabled() {
+      const epochYear = 2020;
+      return this.year === epochYear;
+    },
     formatDate,
     isPast,
     isHoliday
@@ -182,6 +186,14 @@ document.addEventListener('alpine:init', () => {
         --this.year;
       }
     },
+    isDecrementDisabled() {
+      const epochYear = 2021;
+      return this.year === epochYear;
+    },
+    isIncrementDisabled() {
+      const ends = 2022;
+      return this.year === ends;
+    },
     formatDate,
     isPast,
     isHoliday
@@ -200,6 +212,10 @@ document.addEventListener('alpine:init', () => {
       if (this.year > epochYear) {
         --this.year;
       }
+    },
+    isDecrementDisabled() {
+      const epochYear = 2021;
+      return this.year === epochYear;
     },
     formatDate,
     isPast,
