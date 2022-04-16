@@ -121,9 +121,12 @@ function isPast(holidayDate) {
   if (!holidayDate) {
     return false;
   }
+  // Holiday lasts ~4 days.
+  const holidayEnd = new Date(holidayDate);
+  holidayEnd.setDate(holidayEnd.getDate() + 4);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  return holidayDate < today;
+  return holidayEnd < today;
 }
 
 function isHoliday(holidayDate) {
