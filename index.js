@@ -125,7 +125,7 @@ function isPast(holidayDate) {
   const holidayEnd = new Date(holidayDate);
   holidayEnd.setDate(holidayEnd.getDate() + 4);
   const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  today.setHours(0, 0, 1, 0); // One second past midnight
   return holidayEnd < today;
 }
 
