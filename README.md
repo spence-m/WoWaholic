@@ -1,3 +1,3 @@
 # 📅 WoW Classic battleground schedule
 
-Schedule for Classic era, Season of Mastery, and Burning Crusade Classic.
+Small website with the schedule for previous and upcoming WoW Classic battleground holidays.
