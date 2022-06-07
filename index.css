@@ -49,6 +49,10 @@ article {
   color: hsl(0, 0%, 54.1%);
 }
 
+.logo {
+  width: 256px;
+}
+
 .title {
   font-size: 24px;
   font-weight: 500;
