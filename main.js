@@ -1,3 +1,7 @@
+import Alpine from "alpinejs";
+
+window.Alpine = Alpine;
+
 function getClassicHolidays(
   year,
   warsongEpoch,
@@ -245,3 +249,4 @@ document.addEventListener("alpine:init", () => {
     isHoliday,
   }));
 });
+Alpine.start();

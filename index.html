@@ -17,11 +17,7 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
-  <script src="main.js"></script>
-  <script
-    defer
-    src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-  ></script>
+  <script type="module" src="main.js" defer></script>
 </head>
 
 <body>
@@ -35,12 +31,13 @@
 <main role="main" class="main">
   <h1 class="title">WoW Classic Battleground Holidays 2022</h1>
   <div class="content-wrapper">
-    <article x-data="classicEraHolidays">
-      <h1 class="subtitle">Classic Era <b x-text="year"></b></h1>
+    <article x-data="bccHolidays">
+      <h1 class="subtitle subtitle--bcc">
+        Burning Crusade Classic <b x-text="year"></b>
+      </h1>
       <button
         class="button"
         :class="isDecrementDisabled() === true ? 'button--disabled' : ''"
-        :aria-disabled="isDecrementDisabled() === true"
         @click="decrementYear"
       >
         Previous year
@@ -49,6 +46,7 @@
       <table>
         <thead>
         <tr>
+          <th class="table-heading">Eye of the Storm</th>
           <th class="table-heading">Warsong Gulch</th>
           <th class="table-heading">Arathi Basin</th>
           <th class="table-heading">Alterac Valley</th>
@@ -59,7 +57,7 @@
           <tr>
             <td class="table-cell">
               <div
-                :class="isHoliday(date[0].date) === true ? 'triangle' : ''"
+                :class="isHoliday(date[0].date) === true ? 'triangle triangle--bcc' : ''"
               ></div>
               <span
                 :class="isPast(date[0].date) === true ? 'table-cell--past' : ''"
@@ -68,7 +66,7 @@
             </td>
             <td class="table-cell">
               <div
-                :class="isHoliday(date[1].date) === true ? 'triangle' : ''"
+                :class="isHoliday(date[1].date) === true ? 'triangle triangle--bcc' : ''"
               ></div>
               <span
                 :class="isPast(date[1].date) === true ? 'table-cell--past' : ''"
@@ -77,11 +75,20 @@
             </td>
             <td class="table-cell">
               <div
-                :class="isHoliday(date[2].date) === true ? 'triangle' : ''"
+                :class="isHoliday(date[2].date) === true ? 'triangle triangle--bcc' : ''"
               ></div>
               <span
                 :class="isPast(date[2].date) === true ? 'table-cell--past' : ''"
                 x-text="formatDate(date[2].date)"
+              ></span>
+            </td>
+            <td class="table-cell">
+              <div
+                :class="isHoliday(date[3].date) === true ? 'triangle triangle--bcc' : ''"
+              ></div>
+              <span
+                :class="isPast(date[3].date) === true ? 'table-cell--past' : ''"
+                x-text="formatDate(date[3].date)"
               ></span>
             </td>
           </tr>
@@ -150,13 +157,12 @@
       </table>
     </article>
 
-    <article x-data="bccHolidays">
-      <h1 class="subtitle subtitle--bcc">
-        Burning Crusade Classic <b x-text="year"></b>
-      </h1>
+    <article x-data="classicEraHolidays">
+      <h1 class="subtitle">Classic Era <b x-text="year"></b></h1>
       <button
         class="button"
         :class="isDecrementDisabled() === true ? 'button--disabled' : ''"
+        :aria-disabled="isDecrementDisabled() === true"
         @click="decrementYear"
       >
         Previous year
@@ -165,7 +171,6 @@
       <table>
         <thead>
         <tr>
-          <th class="table-heading">Eye of the Storm</th>
           <th class="table-heading">Warsong Gulch</th>
           <th class="table-heading">Arathi Basin</th>
           <th class="table-heading">Alterac Valley</th>
@@ -176,7 +181,7 @@
           <tr>
             <td class="table-cell">
               <div
-                :class="isHoliday(date[0].date) === true ? 'triangle triangle--bcc' : ''"
+                :class="isHoliday(date[0].date) === true ? 'triangle' : ''"
               ></div>
               <span
                 :class="isPast(date[0].date) === true ? 'table-cell--past' : ''"
@@ -185,7 +190,7 @@
             </td>
             <td class="table-cell">
               <div
-                :class="isHoliday(date[1].date) === true ? 'triangle triangle--bcc' : ''"
+                :class="isHoliday(date[1].date) === true ? 'triangle' : ''"
               ></div>
               <span
                 :class="isPast(date[1].date) === true ? 'table-cell--past' : ''"
@@ -194,20 +199,11 @@
             </td>
             <td class="table-cell">
               <div
-                :class="isHoliday(date[2].date) === true ? 'triangle triangle--bcc' : ''"
+                :class="isHoliday(date[2].date) === true ? 'triangle' : ''"
               ></div>
               <span
                 :class="isPast(date[2].date) === true ? 'table-cell--past' : ''"
                 x-text="formatDate(date[2].date)"
-              ></span>
-            </td>
-            <td class="table-cell">
-              <div
-                :class="isHoliday(date[3].date) === true ? 'triangle triangle--bcc' : ''"
-              ></div>
-              <span
-                :class="isPast(date[3].date) === true ? 'table-cell--past' : ''"
-                x-text="formatDate(date[3].date)"
               ></span>
             </td>
           </tr>
