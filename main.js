@@ -1,19 +1,30 @@
-function getClassicHolidays(year, warsongEpoch, arathiEpoch, alteracEpoch, start) {
+import Alpine from "alpinejs";
+
+window.Alpine = Alpine;
+
+function getClassicHolidays(
+  year,
+  warsongEpoch,
+  arathiEpoch,
+  alteracEpoch,
+  start
+) {
   let i = 0;
   const dates = [];
   while (start.getFullYear() <= year) {
-    const row = [{
-      key: "warsong",
-      date: "",
-    },
-    {
-      key: "arathi",
-      date: "",
-    },
-    {
-      key: "alterac",
-      date: "",
-    }
+    const row = [
+      {
+        key: "warsong",
+        date: "",
+      },
+      {
+        key: "arathi",
+        date: "",
+      },
+      {
+        key: "alterac",
+        date: "",
+      },
     ];
     const warsongDate = new Date(warsongEpoch);
     warsongDate.setDate(warsongDate.getDate() + 28 * i);
@@ -56,22 +67,23 @@ function getBCCHolidays(year) {
   let i = 0;
   const dates = [];
   while (start.getFullYear() <= year) {
-    const row = [{
-      key: "warsong",
-      date: "",
-    },
-    {
-      key: "arathi",
-      date: "",
-    },
-    {
-      key: "alterac",
-      date: "",
-    },
-    {
-      key: "eye",
-      date: ""
-    }
+    const row = [
+      {
+        key: "warsong",
+        date: "",
+      },
+      {
+        key: "arathi",
+        date: "",
+      },
+      {
+        key: "alterac",
+        date: "",
+      },
+      {
+        key: "eye",
+        date: "",
+      },
     ];
     const eyeOfTheStormDate = new Date(eyeOfTheStormEpoch);
     eyeOfTheStormDate.setDate(eyeOfTheStormEpoch.getDate() + 28 * i);
@@ -140,15 +152,21 @@ function isHoliday(holidayDate) {
   return today >= holidayDate && today <= ends;
 }
 
-document.addEventListener('alpine:init', () => {
-  Alpine.data('classicEraHolidays', () => ({
+document.addEventListener("alpine:init", () => {
+  Alpine.data("classicEraHolidays", () => ({
     year: new Date().getFullYear(),
     dates() {
       const warsongEpoch = new Date(2020, 2, 13);
       const arathiEpoch = new Date(2020, 2, 20);
       const alteracEpoch = new Date(2020, 3, 3);
       const start = new Date(2020, 2, 13);
-      return getClassicHolidays(this.year, warsongEpoch, arathiEpoch, alteracEpoch, start);
+      return getClassicHolidays(
+        this.year,
+        warsongEpoch,
+        arathiEpoch,
+        alteracEpoch,
+        start
+      );
     },
     incrementYear() {
       ++this.year;
@@ -165,17 +183,23 @@ document.addEventListener('alpine:init', () => {
     },
     formatDate,
     isPast,
-    isHoliday
+    isHoliday,
   }));
 
-  Alpine.data('somHolidays', () => ({
+  Alpine.data("somHolidays", () => ({
     year: new Date().getFullYear(),
     dates() {
       const warsongEpoch = new Date(2021, 10, 19);
       const arathiEpoch = new Date(2021, 10, 26);
       const alteracEpoch = new Date(2021, 11, 10);
       const start = new Date(2021, 10, 19);
-      return getClassicHolidays(this.year, warsongEpoch, arathiEpoch, alteracEpoch, start);
+      return getClassicHolidays(
+        this.year,
+        warsongEpoch,
+        arathiEpoch,
+        alteracEpoch,
+        start
+      );
     },
     incrementYear() {
       const ends = 2022;
@@ -199,10 +223,10 @@ document.addEventListener('alpine:init', () => {
     },
     formatDate,
     isPast,
-    isHoliday
+    isHoliday,
   }));
 
-  Alpine.data('bccHolidays', () => ({
+  Alpine.data("bccHolidays", () => ({
     year: new Date().getFullYear(),
     dates() {
       return getBCCHolidays(this.year);
@@ -222,6 +246,7 @@ document.addEventListener('alpine:init', () => {
     },
     formatDate,
     isPast,
-    isHoliday
+    isHoliday,
   }));
-})
+});
+Alpine.start();
