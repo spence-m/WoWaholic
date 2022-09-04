@@ -20,10 +20,6 @@ table {
   border-collapse: collapse;
 }
 
-article {
-  margin-right: 42px;
-}
-
 .header {
   display: flex;
   justify-content: center;
@@ -33,6 +29,11 @@ article {
   margin: 0 auto;
   padding: 8px;
   max-width: 1400px;
+}
+
+.calendar {
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .footer {
@@ -45,6 +46,7 @@ article {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap-column: 69px;
 }
 
 .table-heading {
@@ -75,8 +77,7 @@ article {
   font-size: 24px;
   font-weight: 500;
 
-  margin: 0;
-  margin-bottom: 36px;
+  margin: 0 0 36px;
 
   color: #e7960a;
 }
