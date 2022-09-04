@@ -46,7 +46,7 @@ table {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap-column: 69px;
+  column-gap: 69px;
 }
 
 .table-heading {
