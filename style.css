@@ -6,6 +6,7 @@ body {
   font-family: "Playfair Display", serif;
   background-color: #141414;
   margin: 0;
+  padding: 8px;
 }
 
 table,
@@ -27,7 +28,6 @@ table {
 
 .main {
   margin: 0 auto;
-  padding: 8px;
   max-width: 1400px;
 }
 
@@ -40,6 +40,10 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.footer-title {
+  color: #4ce0f0;
 }
 
 .content-wrapper {
