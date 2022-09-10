@@ -31,11 +31,6 @@ table {
   max-width: 1400px;
 }
 
-.calendar {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
 .footer {
   display: flex;
   flex-direction: column;
@@ -51,6 +46,14 @@ table {
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 69px;
+}
+
+.article {
+  overflow-x: auto;
+}
+
+.table-wrapper {
+  overflow-x: auto;
 }
 
 .table-heading {
