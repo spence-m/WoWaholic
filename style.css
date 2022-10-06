@@ -37,10 +37,6 @@ table {
   align-items: center;
 }
 
-.footer-title {
-  color: #4ce0f0;
-}
-
 .content-wrapper {
   display: flex;
   flex-direction: row;
