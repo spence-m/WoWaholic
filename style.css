@@ -81,7 +81,7 @@ table {
 }
 
 .title {
-  font-size: 24px;
+  font-size: 42px;
   font-weight: 500;
 
   margin: 0 0 36px;
@@ -95,8 +95,8 @@ table {
   color: #e7960a;
 }
 
-.subtitle--bcc {
-  color: #bcdb00;
+.subtitle--wotlk {
+  color: #4ce0f0;
 }
 
 .button {
@@ -126,6 +126,6 @@ table {
   transform: rotate(-45deg);
 }
 
-.triangle--bcc {
-  background-color: #bcdb00;
+.triangle--wotlk {
+  background-color: #4ce0f0;
 }
