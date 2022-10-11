@@ -1,92 +1,14 @@
 import Alpine from "alpinejs";
-import { getWOTLKHolidays } from "./helpers/date-helper.js";
+
+import {
+  formatDate,
+  getClassicHolidays,
+  getWOTLKHolidays,
+  isHoliday,
+  isPast,
+} from "./helpers/date-helper.js";
 
 window.Alpine = Alpine;
-
-function getClassicHolidays(
-  year,
-  warsongEpoch,
-  arathiEpoch,
-  alteracEpoch,
-  start
-) {
-  let i = 0;
-  const dates = [];
-  while (start.getFullYear() <= year) {
-    const row = [
-      {
-        key: "warsong",
-        date: "",
-      },
-      {
-        key: "arathi",
-        date: "",
-      },
-      {
-        key: "alterac",
-        date: "",
-      },
-    ];
-    const warsongDate = new Date(warsongEpoch);
-    warsongDate.setDate(warsongDate.getDate() + 28 * i);
-    const arathiDate = new Date(arathiEpoch);
-    arathiDate.setDate(arathiDate.getDate() + 28 * i);
-    const alteracDate = new Date(alteracEpoch);
-    alteracDate.setDate(alteracDate.getDate() + 28 * i);
-
-    let added = false;
-    if (warsongDate.getFullYear() === year) {
-      row[0].date = warsongDate;
-      added = true;
-    }
-    if (arathiDate.getFullYear() === year) {
-      row[1].date = arathiDate;
-      added = true;
-    }
-    if (alteracDate.getFullYear() === year) {
-      row[2].date = alteracDate;
-      added = true;
-    }
-
-    if (added) {
-      dates.push(row);
-    }
-    start.setDate(start.getDate() + 28);
-    i++;
-  }
-
-  return dates;
-}
-
-function formatDate(date) {
-  if (!date) {
-    return "";
-  }
-  return date.toLocaleDateString();
-}
-
-function isPast(holidayDate) {
-  if (!holidayDate) {
-    return false;
-  }
-  // Holiday lasts ~4 days.
-  const holidayEnd = new Date(holidayDate);
-  holidayEnd.setDate(holidayEnd.getDate() + 4);
-  const today = new Date();
-  today.setHours(0, 0, 1, 0); // One second past midnight
-  return holidayEnd < today;
-}
-
-function isHoliday(holidayDate) {
-  if (!holidayDate) {
-    return false;
-  }
-  const ends = new Date(holidayDate);
-  ends.setDate(ends.getDate() + 3);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return today >= holidayDate && today <= ends;
-}
 
 document.addEventListener("alpine:init", () => {
   Alpine.data("classicEraHolidays", () => ({
@@ -145,4 +67,5 @@ document.addEventListener("alpine:init", () => {
     isHoliday,
   }));
 });
+
 Alpine.start();
