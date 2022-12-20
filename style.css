@@ -24,11 +24,12 @@ table {
 .header {
   display: flex;
   justify-content: center;
+  margin-bottom: 36px;
 }
 
 .main {
-  margin: 0 auto;
   max-width: 1400px;
+  margin: 0 auto 36px;
 }
 
 .footer {
