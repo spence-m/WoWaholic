@@ -99,6 +99,7 @@ table {
 .button {
   border: none;
   padding: 12px;
+  background-image: url("/public/images/brick-wall-dark.png");
   background-color: #7d2f19;
   color: white;
   cursor: pointer;
