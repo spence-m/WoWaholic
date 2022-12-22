@@ -31,6 +31,8 @@ table {
 .main {
   max-width: 1400px;
   margin: 0 auto 36px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .footer {
