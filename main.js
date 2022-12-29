@@ -1,5 +1,8 @@
 import Alpine from "alpinejs";
 
+import { fetchHelpful, addHelpfulVote } from "./helpers/fetch-helper.js";
+import { getHasVoted, setHasVoted } from "./helpers/local-storage-helper";
+
 import {
   formatDate,
   getClassicHolidays,
@@ -66,6 +69,21 @@ document.addEventListener("alpine:init", () => {
     isPast,
     isHoliday,
   }));
+
+  Alpine.data("foundHelpful", () => ({
+    hasVoted: getHasVoted("https://wowaholic.com/"),
+    addingVote: false,
+    async getVotes() {
+      return await fetchHelpful();
+    },
+    async addVote() {
+      this.addingVote = true;
+      await addHelpfulVote();
+      setHasVoted("https://wowaholic.com/");
+      this.hasVoted = true;
+      this.addingVote = false;
+    },
+  }))
 });
 
 Alpine.start();
