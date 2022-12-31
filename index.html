@@ -173,7 +173,9 @@
   <article class="helpful" x-data="foundHelpful">
     <h1 class="helpful__title">Found this helpful? Let us know then laddie!</h1>
     <template x-if="!hasVoted && !addingVote">
-      <button type="button" class="helpful__button" @click="addVote()">Yes!</button>
+      <button type="button" aria-label="Like" class="helpful__button" @click="addVote()"><img
+        src="/public/images/svg/like-logo.svg" alt="Two tankards clinking with the holder's thumbs up">
+      </button>
     </template>
     <template x-if="hasVoted">
       <p class="helpful__text" x-text="await getVotes() + ' Dwarven brethren found this helpful'">Be right with ya,

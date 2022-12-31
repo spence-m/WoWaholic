@@ -150,7 +150,12 @@ table {
 }
 
 .helpful__button {
-  color: white;
+  width: 200px;
+  height: 124px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 0;
 }
 
 .helpful__text {
