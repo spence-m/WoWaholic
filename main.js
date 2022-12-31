@@ -72,18 +72,47 @@ document.addEventListener("alpine:init", () => {
 
   Alpine.data("foundHelpful", () => ({
     hasVoted: getHasVoted("https://wowaholic.com/"),
-    addingVote: false,
+    text: "",
     async getVotes() {
-      return await fetchHelpful();
+      this.text = "Be right with ya, laddie...";
+      this.votes = await fetchHelpful();
+      if (this.hasVoted) {
+        if (this.votes === -1) {
+          this.text = "Looks like something has gone wrong on our end, laddie";
+        } else if (this.votes === 1) {
+          this.text = `You are the first Dwarven brethren that found this helpful`;
+        } else {
+          this.text = `You and ${
+            this.votes - 1
+          } Dwarven brethren found this helpful`;
+        }
+      } else {
+        if (this.votes === -1) {
+          this.text = "Looks like something has gone wrong on our end, laddie";
+        } else if (this.votes === 0) {
+          this.text = "Be the first to find this helpful, laddie";
+        } else {
+          this.text = `${this.votes} Dwarven brethren found this helpful`;
+        }
+      }
     },
     async addVote() {
-      this.addingVote = true;
-      await addHelpfulVote();
+      if (this.hasVoted) {
+        return;
+      }
+      this.text = "Be right with ya, laddie...";
+      this.votes = await addHelpfulVote();
       setHasVoted("https://wowaholic.com/");
       this.hasVoted = true;
-      this.addingVote = false;
+      if (this.votes === 1) {
+        this.text = `You are the first Dwarven brethren that found this helpful`;
+      } else {
+        this.text = `You and ${
+          this.votes - 1
+        } Dwarven brethren found this helpful`;
+      }
     },
-  }))
+  }));
 });
 
 Alpine.start();
