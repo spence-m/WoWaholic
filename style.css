@@ -54,6 +54,7 @@ table {
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 69px;
+  margin-bottom: 36px;
 }
 
 .article {
@@ -136,4 +137,29 @@ table {
 
 .triangle--wotlk {
   background-color: #4ce0f0;
+}
+
+.helpful {
+  text-align: center;
+}
+
+.helpful__title {
+  color: white;
+  margin: 0 0 24px;
+  font-size: 24px;
+}
+
+.helpful__button {
+  width: 200px;
+  height: 124px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.helpful__text {
+  color: white;
+  margin: 0;
+  font-size: 18px;
 }
