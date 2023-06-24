@@ -109,7 +109,7 @@ table {
 }
 
 .button {
-  border: none;
+  border: 1px solid #7d2f19;
   padding: 12px;
   background-color: #7d2f19;
   color: white;
@@ -123,6 +123,11 @@ table {
 
 .button--disabled {
   opacity: 0.7;
+}
+
+.button--secondary {
+  background: transparent;
+  border: 1px solid #7d2f19;
 }
 
 .triangle {
