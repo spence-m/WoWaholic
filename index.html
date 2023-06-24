@@ -43,7 +43,7 @@
       </h1>
       <button
         type="button"
-        class="button"
+        class="button button--secondary"
         :class="isDecrementDisabled() === true ? 'button--disabled' : ''"
         @click="decrementYear"
       >
@@ -120,7 +120,7 @@
       <h1 class="subtitle">SoM / Classic Era <b x-text="year"></b></h1>
       <button
         type="button"
-        class="button"
+        class="button button--secondary"
         :class="isDecrementDisabled() === true ? 'button--disabled' : ''"
         :aria-disabled="isDecrementDisabled() === true"
         @click="decrementYear"
