@@ -36,18 +36,43 @@
 </header>
 <main class="main">
   <h1 class="title">Hardcore Character Generator</h1>
-  <div class="content-wrapper" x-data="hc">
-    <div>
-      <button type="button" @click="generate">Generate</button>
+  <div class="hardcore__content" x-data="hc" x-init="generate()">
+    <h2 class="hardcore__subtitle">Let's go again laddie. Spice up your Hardcore adventure by playing a randomly
+      generated character!</h2>
+    <p class="hardcore__text">Every attribute is randomised, we'll just leave the hard bit to you — choosing a name</p>
+    <button class="hardcore__button" type="button" @click="generate">Generate 🎲</button>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <template x-for="prop in generated">
+            <th class="table-heading table-heading--hardcore" x-text="prop.label"></th>
+          </template>
+        </tr>
+
+        <tr>
+          <template x-for="prop in generated">
+
+            <!--            <th class="table-heading" x-text="prop.label"></th>-->
+            <td class="table-cell" x-text="prop.value">
+            </td>
+            <!--            <td>-->
+            <!--              <img :src="prop.src" />-->
+            <!--            </td>-->
+          </template>
+        </tr>
+
+        <tr>
+          <template x-for="prop in generated">
+            <td>
+              <img class="hardcore__class" :src="prop.src" />
+            </td>
+          </template>
+        </tr>
+      </table>
     </div>
-    <div>
-      <template x-for="prop in generated">
-        <div class="grid-wrapper">
-          <p x-text="prop.label"></p>
-          <p x-text="prop.value"></p>
-        </div>
-      </template>
-    </div>
+    <!--    <a href="https://www.wowhead.com/classic/dressing-room#fk8zz" target="_blank">👉 Check out your new hero in-->
+    <!--      wowhead&rsquo;s-->
+    <!--      dressing room</a>-->
   </div>
   <article class="helpful" x-init="await getVotes()" x-data="foundHelpful">
     <h1 class="helpful__title">Found this helpful? Let us know then laddie!</h1>

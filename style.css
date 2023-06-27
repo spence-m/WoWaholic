@@ -172,3 +172,43 @@ table {
   grid-column-gap: 100px;
   grid-row-gap: 0px;
 }
+
+.hardcore__content {
+  margin-bottom: 36px;
+}
+
+.hardcore__subtitle {
+  margin: 0;
+  margin-bottom: 24px;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.hardcore__text {
+  margin: 0;
+  margin-bottom: 24px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.hardcore__button {
+  border: none;
+  margin-bottom: 24px;
+  padding: 12px;
+  background-color: #7d2f19;
+  color: white;
+  cursor: pointer;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  width: 150px;
+}
+
+.hardcore__class {
+  width: 168px;
+}
+
+.table-heading--hardcore {
+  text-align: left;
+}
