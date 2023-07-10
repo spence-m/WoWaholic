@@ -16,7 +16,7 @@
     "babel-jest": "^29.6.1",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.6.1",
-    "prettier": "2.8.8",
+    "prettier": "3.0.0",
     "prisma": "^4.16.2",
     "terser": "^5.18.2",
     "ts-node": "^10.9.1",
