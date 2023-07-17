@@ -222,3 +222,23 @@ table {
   color: white;
   font-size: 16px;
 }
+
+.choice__img-container {
+  position: relative;
+  width: auto;
+  display: inline-block;
+}
+
+.choice__faction {
+  position: absolute;
+  width: 50px;
+  right: -25px;
+  bottom: -10px;
+}
+
+.choice__gender {
+  position: absolute;
+  width: 50px;
+  bottom: -10px;
+  right: 28px;
+}
