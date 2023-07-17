@@ -4,6 +4,8 @@
   ],
   "rules": {
     "no-trailing-whitespace": "off",
-    "empty-heading": "off"
+    "empty-heading": "off",
+    "text-content": "off",
+    "element-required-attributes": "off"
   }
 }

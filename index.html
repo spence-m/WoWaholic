@@ -24,15 +24,20 @@
 
 <body>
 <header class="header">
-  <a href="/">
-    <img
-      class="logo"
-      src="/images/logo.webp"
-      alt="Logo showing an dwarf with a tankard of beer"
-      width="256px"
-      height="348px"
-    >
-  </a>
+  <nav class="nav">
+    <a href="/" class="nav__logo">
+      <img
+        class="logo"
+        src="/images/logo.webp"
+        alt="Logo showing an dwarf with a tankard of beer"
+        width="256px"
+        height="348px"
+      >
+    </a>
+    <a href="/go-again.html" class="nav__hardcore-link">Random Hardcore Character Picker<span
+      class="nav__hardcore-link-new">new ✨</span></a>
+  </nav>
+
 </header>
 <main class="main">
   <h1 class="title" x-data x-text="`WoW Classic Battleground Holidays ${new Date().getFullYear()}`"></h1>
