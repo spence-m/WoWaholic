@@ -55,8 +55,10 @@
             height="200px"
           >
           <img class="choice__faction"
-               :src="faction === 'Alliance' ? '/images/races/alliance.png' : '/images/races/horde.png'">
-          <img class="choice__gender" :src="isMale ? '/images/races/male.png' : '/images/races/female.png'">
+               :src="faction === 'Alliance' ? '/images/races/alliance.png' : '/images/races/horde.png'"
+               alt="the faction that the character belongs to e.g. horde or alliance.">
+          <img class="choice__gender" :src="isMale ? '/images/races/male.png' : '/images/races/female.png'"
+               alt="the gender of the character e.g. male or female.">
         </div>
         <p><span x-text="id"></span> <span x-text="chosenClass"></span></p>
       </div>
