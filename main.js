@@ -2,6 +2,7 @@ import Alpine from "alpinejs";
 
 import { fetchHelpful, addHelpfulVote } from "./helpers/fetch-helper.js";
 import { getHasVoted, setHasVoted } from "./helpers/local-storage-helper";
+import { generate } from "./helpers/hardcore-helper.js";
 
 import {
   formatDate,
@@ -111,6 +112,23 @@ document.addEventListener("alpine:init", () => {
           this.votes - 1
         } Dwarven brethren found this helpful`;
       }
+    },
+  }));
+
+  Alpine.data("goAgain", () => ({
+    choice: null,
+    generateChoice() {
+      const chosen = generate();
+      if (!this.choice) {
+        this.choice = chosen;
+        return;
+      }
+
+      this.choice.id = chosen.id;
+      this.choice.faction = chosen.faction;
+      this.choice.chosenClass = chosen.chosenClass;
+      this.choice.isMale = chosen.isMale;
+      this.choice.img = chosen.img;
     },
   }));
 });

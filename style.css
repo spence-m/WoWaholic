@@ -21,11 +21,37 @@ table {
 }
 
 .header {
-  display: flex;
-  justify-content: center;
   margin-bottom: 36px;
   padding: 16px;
   background-color: black;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav__logo {
+  margin-bottom: 16px;
+}
+
+.nav__hardcore-link {
+  position: relative;
+  text-align: center;
+  color: #ff2c2c;
+  font-size: 16px;
+}
+
+.nav__hardcore-link-new {
+  position: absolute;
+  top: -10px;
+  font-size: 14px;
+  color: yellow;
+  text-transform: uppercase;
+  display: block;
+  right: -55px;
 }
 
 .main {
@@ -54,6 +80,13 @@ table {
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 69px;
+  margin-bottom: 36px;
+}
+
+.content-wrapper--hardcore {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin-bottom: 36px;
 }
 
@@ -167,4 +200,25 @@ table {
   color: white;
   margin: 0;
   font-size: 18px;
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hardcore_race-img {
+  animation: myAnim 1s ease 0s 1 normal forwards;
+}
+
+.choice {
+  color: white;
+  font-size: 16px;
 }

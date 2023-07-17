@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Battleground holiday schedule 2023 for Classic Era, Season of Mastery, and Wrath of the Lich King Classic.">
+  <title>WoW Classic Battleground Holidays 2023</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/favicon_io/site.webmanifest">
+  <script type="module" src="main.js" defer></script>
+</head>
+
+<body>
+<header class="header">
+  <nav class="nav">
+    <a href="/public" class="nav__logo">
+      <img
+        class="logo"
+        src="/images/logo.webp"
+        alt="Logo showing an dwarf with a tankard of beer"
+        width="256px"
+        height="348px"
+      >
+    </a>
+    <a href="/go-again.html" class="nav__hardcore-link">Random Hardcore Character Picker<span
+      class="nav__hardcore-link-new">new ✨</span></a>
+  </nav>
+
+</header>
+<main class="main">
+  <h1 class="title">Random Hardcore Character Picker</h1>
+  <div class="content-wrapper--hardcore" x-data="goAgain">
+    <button type="button" class="button" @click="generateChoice"
+            x-text="choice === null ? 'Generate 🎲' : 'I died 💀'"></button>
+    <template x-if="choice">
+      <div x-data="choice" class="choice">
+        <img
+          class="hardcore_race-img"
+          :src="img"
+          alt="Logo showing an dwarf with a tankard of beer"
+          width="200px"
+          height="200px"
+        >
+        <p><span x-text="id"></span> <span x-text="chosenClass"></span></p>
+      </div>
+    </template>
+    <p></p>
+  </div>
+  <article class="helpful" x-init="await getVotes()" x-data="foundHelpful">
+    <h1 class="helpful__title">Found this helpful? Let us know then laddie!</h1>
+    <button type="button" aria-label="Like" class="helpful__button" @click="addVote()"><img
+      src="/images/svg/like-logo.svg" alt="Two tankards clinking with the holder's thumbs up">
+    </button>
+    <p class="helpful__text" x-text="text"></p>
+  </article>
+</main>
+<footer class="footer">
+  <a href="/public">
+    <img
+      class="logo"
+      src="/images/logo.webp"
+      alt="Logo showing an dwarf with a tankard of beer"
+      width="256px"
+      height="348px"
+    >
+  </a>
+  <p class="footer__text" x-data x-text="new Date().getFullYear()"></p>
+</footer>
+</body>
+</html>
