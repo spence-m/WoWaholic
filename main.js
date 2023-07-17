@@ -76,7 +76,7 @@ document.addEventListener("alpine:init", () => {
     text: "",
     async getVotes() {
       this.text = "Be right with ya, laddie...";
-      this.votes = await fetchHelpful();
+      this.votes = await fetchHelpful("go-again.html");
       if (this.hasVoted) {
         if (this.votes === -1) {
           this.text = "Looks like something has gone wrong on our end, laddie";
@@ -103,7 +103,7 @@ document.addEventListener("alpine:init", () => {
       }
       this.text = "Be right with ya, laddie...";
       this.votes = await addHelpfulVote();
-      setHasVoted("https://wowaholic.com/");
+      setHasVoted("https://wowaholic.com/go-again.html");
       this.hasVoted = true;
       if (this.votes === 1) {
         this.text = `You are the first Dwarven brethren that found this helpful`;

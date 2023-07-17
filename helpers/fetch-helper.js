@@ -1,7 +1,7 @@
-export const fetchHelpful = async () => {
+export const fetchHelpful = async (page) => {
   try {
     const { votes } = await (
-      await fetch("/.netlify/functions/get-helpful-votes")
+      await fetch(`/.netlify/functions/get-helpful-votes?page=${page}`)
     ).json();
     return votes;
   } catch (e) {
@@ -12,7 +12,7 @@ export const fetchHelpful = async () => {
 export const addHelpfulVote = async () => {
   try {
     const { votes } = await (
-      await fetch("/.netlify/functions/add-helpful-vote")
+      await fetch(`/.netlify/functions/add-helpful-vote?page=${page}`)
     ).json();
     return votes;
   } catch (e) {
