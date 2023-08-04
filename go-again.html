@@ -49,16 +49,153 @@
         <div class="choice__img-container">
           <img
             class="hardcore_race-img"
-            :src="img"
-            alt="Logo showing an dwarf with a tankard of beer"
+            src="/images/races/dwarf-female.png"
+            alt="Dwarf female"
             width="200px"
             height="200px"
+            x-show="choice.id === 'Dwarf' && !choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/dwarf-male.png"
+            alt="Dwarf male"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Dwarf' && choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/gnome-female.png"
+            alt="Gnome female"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Gnome' && !choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/gnome-male.png"
+            alt="Gnome male"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Gnome' && choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/human-female.png"
+            alt="Human female"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Human' && !choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/human-male.png"
+            alt="Human male"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Human' && choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/night-elf-female.png"
+            alt="Night Elf female"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Night Elf' && !choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/night-elf-male.png"
+            alt="Night Elf male"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Night Elf' && choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/orc-female.png"
+            alt="Orc female"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Orc' && !choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/orc-male.png"
+            alt="Orc male"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Orc' && choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/tauren-female.png"
+            alt="Tauren female"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Tauren' && !choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/tauren-male.png"
+            alt="Tauren male"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Tauren' && choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/troll-female.png"
+            alt="Troll female"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Troll' && !choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/troll-male.png"
+            alt="Troll male"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Troll' && choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/undead-female.png"
+            alt="Undead female"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Undead' && !choice.isMale"
+          >
+          <img
+            class="hardcore_race-img"
+            src="/images/races/undead-male.png"
+            alt="Undead male"
+            width="200px"
+            height="200px"
+            x-show="choice.id === 'Undead' && choice.isMale"
+          >
+
+          <img class="choice__faction"
+               src="/images/races/alliance.png"
+               alt="Alliance emblem."
+               x-show="faction === 'Alliance'"
           >
           <img class="choice__faction"
-               :src="faction === 'Alliance' ? '/images/races/alliance.png' : '/images/races/horde.png'"
-               alt="the faction that the character belongs to e.g. horde or alliance.">
-          <img class="choice__gender" :src="isMale ? '/images/races/male.png' : '/images/races/female.png'"
-               alt="the gender of the character e.g. male or female.">
+               src="/images/races/horde.png"
+               alt="Horde emblem."
+               x-show="faction === 'Horde'"
+          >
+          <img class="choice__gender"
+               src="/images/races/male.png"
+               alt="Male gender icon."
+               x-show="isMale"
+          >
+          <img class="choice__gender"
+               src="/images/races/female.png"
+               alt="Female gender icon."
+               x-show="!isMale"
+          >
         </div>
         <p><span x-text="id"></span> <span x-text="chosenClass"></span></p>
       </div>
