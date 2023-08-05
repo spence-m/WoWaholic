@@ -14,6 +14,24 @@ import {
 
 window.Alpine = Alpine;
 
+const getBrownBread = () => {
+  const brownBread = localStorage.getItem("brownBread");
+  if (!brownBread) {
+    return [];
+  }
+
+  return JSON.parse(brownBread);
+};
+
+const getAlive = () => {
+  const alive = localStorage.getItem("alive");
+  if (!alive) {
+    return null;
+  }
+
+  return JSON.parse(alive);
+};
+
 document.addEventListener("alpine:init", () => {
   Alpine.data("classicEraHolidays", () => ({
     year: new Date().getFullYear(),
@@ -116,13 +134,20 @@ document.addEventListener("alpine:init", () => {
   }));
 
   Alpine.data("goAgain", () => ({
-    choice: null,
+    choice: getAlive(),
+    brownBread: getBrownBread(),
     generateChoice() {
       const chosen = generate();
+
+      localStorage.setItem("alive", JSON.stringify(chosen));
+
       if (!this.choice) {
         this.choice = chosen;
         return;
       }
+
+      this.brownBread.unshift({ ...this.choice });
+      localStorage.setItem("brownBread", JSON.stringify(this.brownBread));
 
       this.choice.id = chosen.id;
       this.choice.faction = chosen.faction;

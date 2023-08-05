@@ -40,167 +40,201 @@
 
 </header>
 <main class="main">
-  <h1 class="title">Random Hardcore Character Picker</h1>
-  <div class="content-wrapper--hardcore" x-data="goAgain">
+  <h1 class="title">Random Hardcore Character Picker (work in progress)</h1>
+  <div x-data="goAgain">
     <button type="button" class="button" @click="generateChoice"
             x-text="choice === null ? 'Generate 🎲' : 'I died 💀'"></button>
-    <template x-if="choice">
-      <div x-data="choice" class="choice">
-        <div class="choice__img-container">
-          <img
-            class="hardcore_race-img"
-            src="/images/races/dwarf-female.png"
-            alt="Dwarf female"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Dwarf' && !choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/dwarf-male.png"
-            alt="Dwarf male"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Dwarf' && choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/gnome-female.png"
-            alt="Gnome female"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Gnome' && !choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/gnome-male.png"
-            alt="Gnome male"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Gnome' && choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/human-female.png"
-            alt="Human female"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Human' && !choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/human-male.png"
-            alt="Human male"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Human' && choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/night-elf-female.png"
-            alt="Night Elf female"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Night Elf' && !choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/night-elf-male.png"
-            alt="Night Elf male"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Night Elf' && choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/orc-female.png"
-            alt="Orc female"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Orc' && !choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/orc-male.png"
-            alt="Orc male"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Orc' && choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/tauren-female.png"
-            alt="Tauren female"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Tauren' && !choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/tauren-male.png"
-            alt="Tauren male"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Tauren' && choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/troll-female.png"
-            alt="Troll female"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Troll' && !choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/troll-male.png"
-            alt="Troll male"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Troll' && choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/undead-female.png"
-            alt="Undead female"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Undead' && !choice.isMale"
-          >
-          <img
-            class="hardcore_race-img"
-            src="/images/races/undead-male.png"
-            alt="Undead male"
-            width="200px"
-            height="200px"
-            x-show="choice.id === 'Undead' && choice.isMale"
-          >
+    <div class="content-wrapper--hardcore">
+      <template x-if="choice">
+        <div x-data="choice" class="choice">
+          <div class="choice__img-container">
+            <img
+              class="hardcore_race-img"
+              src="/images/races/dwarf-female.png"
+              alt="Dwarf female"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Dwarf' && !choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/dwarf-male.png"
+              alt="Dwarf male"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Dwarf' && choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/gnome-female.png"
+              alt="Gnome female"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Gnome' && !choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/gnome-male.png"
+              alt="Gnome male"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Gnome' && choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/human-female.png"
+              alt="Human female"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Human' && !choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/human-male.png"
+              alt="Human male"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Human' && choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/night-elf-female.png"
+              alt="Night Elf female"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Night Elf' && !choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/night-elf-male.png"
+              alt="Night Elf male"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Night Elf' && choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/orc-female.png"
+              alt="Orc female"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Orc' && !choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/orc-male.png"
+              alt="Orc male"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Orc' && choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/tauren-female.png"
+              alt="Tauren female"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Tauren' && !choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/tauren-male.png"
+              alt="Tauren male"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Tauren' && choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/troll-female.png"
+              alt="Troll female"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Troll' && !choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/troll-male.png"
+              alt="Troll male"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Troll' && choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/undead-female.png"
+              alt="Undead female"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Undead' && !choice.isMale"
+            >
+            <img
+              class="hardcore_race-img"
+              src="/images/races/undead-male.png"
+              alt="Undead male"
+              width="200px"
+              height="200px"
+              x-show="choice.id === 'Undead' && choice.isMale"
+            >
 
-          <img class="choice__faction"
-               src="/images/races/alliance.png"
-               alt="Alliance emblem."
-               x-show="faction === 'Alliance'"
-          >
-          <img class="choice__faction"
-               src="/images/races/horde.png"
-               alt="Horde emblem."
-               x-show="faction === 'Horde'"
-          >
-          <img class="choice__gender"
-               src="/images/races/male.png"
-               alt="Male gender icon."
-               x-show="isMale"
-          >
-          <img class="choice__gender"
-               src="/images/races/female.png"
-               alt="Female gender icon."
-               x-show="!isMale"
-          >
+            <img class="choice__faction"
+                 src="/images/races/alliance.png"
+                 alt="Alliance emblem."
+                 x-show="faction === 'Alliance'"
+            >
+            <img class="choice__faction"
+                 src="/images/races/horde.png"
+                 alt="Horde emblem."
+                 x-show="faction === 'Horde'"
+            >
+            <img class="choice__gender"
+                 src="/images/races/male.png"
+                 alt="Male gender icon."
+                 x-show="isMale"
+            >
+            <img class="choice__gender"
+                 src="/images/races/female.png"
+                 alt="Female gender icon."
+                 x-show="!isMale"
+            >
+          </div>
+          <p><span x-text="id"></span> <span x-text="chosenClass"></span></p>
         </div>
-        <p><span x-text="id"></span> <span x-text="chosenClass"></span></p>
-      </div>
-    </template>
-    <p></p>
+      </template>
+      <template x-for="dead in brownBread">
+        <div class="choice">
+          <div class="choice__img-container choice__img-container--dead">
+            <img
+              :src="dead.img"
+              alt="Character that has died shown in greyscale."
+              width="200px"
+              height="200px"
+            >
+            <img class="choice__faction"
+                 src="/images/races/alliance.png"
+                 alt="Alliance emblem."
+                 x-show="dead.faction === 'Alliance'"
+            >
+            <img class="choice__faction"
+                 src="/images/races/horde.png"
+                 alt="Horde emblem."
+                 x-show="dead.faction === 'Horde'"
+            >
+            <img class="choice__gender"
+                 src="/images/races/male.png"
+                 alt="Male gender icon."
+                 x-show="dead.isMale"
+            >
+            <img class="choice__gender"
+                 src="/images/races/female.png"
+                 alt="Female gender icon."
+                 x-show="!dead.isMale"
+            >
+          </div>
+          <p><span x-text="dead.id"></span> <span x-text="dead.chosenClass"></span></p>
+        </div>
+      </template>
+    </div>
   </div>
   <!--  <article class="helpful" x-init="await getVotes()" x-data="foundHelpful">-->
   <!--    <h1 class="helpful__title">Found this helpful? Let us know then laddie!</h1>-->
