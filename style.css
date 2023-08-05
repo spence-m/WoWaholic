@@ -85,9 +85,10 @@ table {
 
 .content-wrapper--hardcore {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 36px;
+  column-gap: 48px;
 }
 
 .article {
@@ -227,6 +228,10 @@ table {
   position: relative;
   width: auto;
   display: inline-block;
+}
+
+.choice__img-container--dead {
+  filter: grayscale(1);
 }
 
 .choice__faction {
