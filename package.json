@@ -21,7 +21,7 @@
     "terser": "^5.20.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9"
+    "vite": "^4.4.11"
   },
   "dependencies": {
     "@netlify/functions": "^2.1.0",
