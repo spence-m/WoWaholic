@@ -24,7 +24,7 @@
     "vite": "^4.5.0"
   },
   "dependencies": {
-    "@netlify/functions": "^2.3.0",
+    "@netlify/functions": "^2.4.0",
     "@prisma/client": "^5.5.2",
     "alpinejs": "^3.13.2"
   }
