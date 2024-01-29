@@ -26,6 +26,6 @@
   "dependencies": {
     "@netlify/functions": "^2.5.1",
     "@prisma/client": "^5.8.1",
-    "alpinejs": "^3.13.3"
+    "alpinejs": "^3.13.5"
   }
 }
