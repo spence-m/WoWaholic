@@ -20,7 +20,7 @@
     "prisma": "^5.11.0",
     "terser": "^5.30.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3",
+    "typescript": "^5.4.4",
     "vite": "^5.2.7"
   },
   "dependencies": {
