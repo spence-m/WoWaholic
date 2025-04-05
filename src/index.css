@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+    --color-black-transparent: rgba(0, 0, 0, 0.5);
+    --animate-glow: glow 1.5s infinite alternate;
+    --animate-wiggle: wiggle 1s ease-in-out infinite;
+
+    @keyframes glow {
+        from {
+            box-shadow: 0 0 10px -5px var(--color-orange-400)
+        }
+
+        to {
+            box-shadow: 0 0 10px 5px var(--color-orange-400);
+        }
+    }
+
+    @keyframes wiggle {
+        0%,
+        100% {
+          transform: rotate(-3deg);
+        }
+        50% {
+          transform: rotate(3deg);
+        }
+      }
+}
+
+* {
+    font-family: FrizQuadrataRegularOS, sans-serif;
+}
+
+@font-face {
+    font-family: 'FrizQuadrataRegularOS';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Friz Quadrata Regular OS'), url('./assets/fonts/friz-quadrata-regular-os.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'FrizQuadrataBoldItalicOS';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Friz Quadrata Bold Italic OS'), url('./assets/fonts/friz-quadrata-bold-italic-os.woff') format('woff');
+}
