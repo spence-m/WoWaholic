@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import './App.css';
 import { getClassicHolidays, getClassicHolidaysAfterMessup } from './helpers/date-helper';
 import { useState } from 'react';
+import { useParams } from 'react-router';
 
 const imageConfig = {
   image1: "bg-[linear-gradient(rgba(0,_0,_0,_0.5),rgba(0,_0,_0,_0.5)),url('/img/World_of_Warcraft_Classic_20th_Anniversary_Realms_Screenshots_(2).jpg')]",
@@ -15,8 +16,8 @@ const imageConfig = {
 
 const CalendarCell = ({ day, mcReset, bwlReset, aqReset, warsongStarts, arathiStarts,
   alteracStarts, warsongContinues, arathiContinues, alteracContinues, warsongEnds, arathiEnds,
-  alteracEnds, hidden, today, isPast }) => {
-  return <article className={classNames("w-[130px] h-[130px] p-1 rounded-[1px] border-[2px] border-orange-400 text-white bg-orange-600 relative overflow-hidden", isPast ? "opacity-50" : "", hidden === true ? "invisible" : "", today === true ? "animate-glow" : "", today === true ? "animate-wiggle" : "")}>
+  alteracEnds, hidden, today, isPast, selected, ...rest }) => {
+  return <article className={classNames("w-[130px] h-[130px] p-1 rounded-[1px] border-[2px] text-white relative overflow-hidden cursor-pointer", isPast && !selected ? "opacity-50" : "", hidden ? "invisible" : "", today === true ? "animate-glow" : "", selected ? "bg-emerald-600 border-emerald-400" : "bg-orange-600 border-orange-400" )} {...rest}>
     <h1 className='leading-none text-left text-2xl'>{day}</h1>
     <ul className='flex flex-col gap-[10px]'>
       {mcReset && (<li className='leading-none text-left text-xs bg-red-900 p-1 -ml-1 rounded-[1px] min-h-[32px]'>Molten Core reset</li>)}
@@ -108,6 +109,9 @@ const monthToName = (month) => {
 }
 
 function App() {
+  let { selectedDate } = useParams();
+  console.log("selected date: " + selectedDate);
+  const [selected, setSelected] = useState(20);
   const rand = Math.floor(Math.random() * Object.keys(imageConfig).length) + 1;
   const image = imageConfig[`image${rand}`];
 
@@ -249,7 +253,7 @@ function App() {
             return (<CalendarCell key={i} day={value?.getDate()} warsongStarts={warsongStarts}
               arathiStarts={arathiStarts} alteracStarts={alteracStarts} warsongContinues={warsongContinues}
               arathiContinues={arathiContinues} alteracContinues={alteracContinues} warsongEnds={warsongEnds}
-              arathiEnds={arathiEnds} alteracEnds={alteracEnds} hidden={hide} today={new Date().getDate() === value?.getDate() && new Date().getMonth() === value?.getMonth()} isPast={isPast} />);
+              arathiEnds={arathiEnds} alteracEnds={alteracEnds} hidden={hide} today={new Date().getDate() === value?.getDate() && new Date().getMonth() === value?.getMonth()} isPast={isPast} selected={selected === i} onClick={() => setSelected(i)} />);
           })}
         </div>
       </div>
