@@ -15,7 +15,7 @@
     "@types/node": "^24.0.7",
     "babel-jest": "^30.0.4",
     "jest": "^30.0.4",
-    "jest-environment-jsdom": "^30.0.2",
+    "jest-environment-jsdom": "^30.0.4",
     "prettier": "3.6.2",
     "prisma": "^6.11.1",
     "terser": "^5.43.1",
